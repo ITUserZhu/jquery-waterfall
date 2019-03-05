@@ -53,20 +53,19 @@ waterfall with jquery prototype function
 
 // 瀑布流元素
 let template = `
-		<li class="item" data-id="{ id }">
-			<a href="{ url }" title="{ title }">
-				<img src="{ thumb }" title="{ title }">
-				<div class="mask">
-					<div class="img-operate">
-						<span class="collect"><i class="icon-collect"></i></span>
-						<span class="download-other fr">源文件</span>
-						<span class="download-jpg fr">原图</span>
-					</div>
-					<div class="img-title common_ovh">{ title }</div>
+	<li class="item" data-id="{ id }">
+		<a href="{ url }" title="{ title }">
+			<img src="{ thumb }" title="{ title }">
+			<div class="mask">
+				<div class="img-operate">
+					<span class="collect"><i class="icon-collect"></i></span>
+					<span class="download-other fr">源文件</span>
+					<span class="download-jpg fr">原图</span>
 				</div>
-			</a>
-		</li>
-	`;
+				<div class="img-title common_ovh">{ title }</div>
+			</div>
+		</a>
+	</li>`;
 let curPage = 2, filterData = { 一些数据 };
 
 // 后台获取数据接口方法
