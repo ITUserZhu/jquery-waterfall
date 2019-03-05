@@ -67,9 +67,11 @@ let template = `
 			</a>
 		</li>
 	`;
-let curPage = 2;
+let curPage = 2, filterData = { 一些数据 };
+
 // 后台获取数据接口方法
 function getListAjax(callback) {
+		let data = filterData;
 		data.page = curPage;
 
         $.ajax({
