@@ -53,6 +53,13 @@
 			'http://pic.52112.com/171201/Green__black/h4FcCXNfDp.jpg',
 			'http://pic.52112.com/171110/Fashion_1/CKP996d33K.jpg',
 			'http://pic.52112.com/171201/Female_hairdresser/5RfwCaKzUV.jpg',
+			'http://pic.52112.com/171110/Couple_having_breakfast/qzFtOA8Mnz.jpg',
+			'http://photo.mac69.com/180426/180426_126/YA5rLJPLjd_small.jpg',
+			'http://pic.52112.com/171110/Cake_with_lemon_and_oranges/INhEYgVPTI.jpg',
+			'http://pic.52112.com/171201/Green__black/Nj5RWhrVGd.jpg',
+			'http://pic.52112.com/171222/Panna_cotta/oBNr35smC3.jpg',
+			'http://photo.mac69.com/180331/180331_9/LeAow3wczk_small.jpg',
+			'http://pic.52112.com/171201/Green__black/mscaaSYiVx.jpg',
 		];
 
 		var template = '<li class="item"><img src="{ src }"></li>',
@@ -64,7 +71,20 @@
 
 		$material.append(html);
 
-		$material.toWaterfall();
+		$material.toWaterfall({
+			ajaxData: function(success) {
+				// 模拟获取到数据
+				var data = datas, str = '';
+
+				// 处理数据
+				$.each(data, function(index, el) {
+		        	str += template
+		        		.replace("{ src }", el)
+		        });
+				// 传入处理后数据与 是否继续加载条件 1 
+				success(str, 1);
+			}
+		});
 	</script>
 </body>
 </html>
