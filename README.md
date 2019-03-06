@@ -1,7 +1,8 @@
 # jquery-waterfall
+
 waterfall with jquery prototype function
 
-# 一款简单jq插件，配载**es6**语法的竖向瀑布流
+# 一款简单jq插件，配载**es6**语法的竖向瀑布流 [demo](https://ituserzhu.github.io/jquery-waterfall/demo/)
 
 ## 插件特点：
 
