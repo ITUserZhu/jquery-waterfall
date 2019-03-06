@@ -1,3 +1,4 @@
+import 'babel-polyfill';
 ;(function(win,$,doc){
     // 声明插件名
     const PLUGINNAME = 'toWaterfall';
@@ -151,7 +152,7 @@
                 maxH = Math.max.apply(null, this.heightArr),
                 _this = this;
             // 判断滚动高度与是否需要滚动加载与是否正在加载中
-            if((scrollH + winH) >= (docH - 800) && maxH > 1500 && !!this.opts.ajaxData && !this.isLoading) {
+            if((scrollH + winH) >= (docH - 800) && maxH > 800 && !!this.opts.ajaxData && !this.isLoading) {
                 // 如果没有数据底部提示到底，否则提示加载更多
                 if(_this.isEnd) {
                     $(_this.noDataDom).text(_this.opts.tipObj.text1);
