@@ -24,8 +24,9 @@ waterfall with jquery prototype function
 
 1. 在jquery.js后引入
 2. 自定义瀑布流容器,设置初始高度，需要相对定位
-2. 自定义瀑布流元素,定义宽度与默认样式，高度根据图片自适应（默认class="item"）
+2. 自定义瀑布流元素,定义宽度与默认样式，高度根据图片自适应（默认class="item"）图片宽度固定
 3. 容器调用插件方法
+4. waterfall.min.js 已经转义为es5并引入babel-polyfill
 
 ```
 

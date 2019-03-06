@@ -37,7 +37,7 @@
             this.timer = null;
             this.isInit = false; 
             // 判断底部加载状态是否存在
-            if($(this.opts.tipObj.tipDom).length == 0) {
+            if($(this.opts.tipObj.tipDom).length == 0 && this.opts.ajaxData) {
                 // 在不瀑布流容器后面添加
                 this.wrap.after($(`<div id="${ this.opts.tipObj.tipDom.replace('#', '') }">${ this.opts.tipObj.text1 }</div>`));
                 // 设置样式
