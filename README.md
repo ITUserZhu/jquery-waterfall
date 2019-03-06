@@ -56,62 +56,62 @@ waterfall with jquery, es6
 // 瀑布流元素
 let template = `
     <li class="item" data-id="{ id }">
-		<a href="{ url }" title="{ title }">
-	    	<img src="{ thumb }" title="{ title }">
-			<div class="mask">
-				<div class="img-operate">
-					<span class="collect"><i class="icon-collect"></i></span>
-					<span class="download-other fr">源文件</span>
-					<span class="download-jpg fr">原图</span>
-				</div>
-				<div class="img-title common_ovh">{ title }</div>
-			</div>
-		</a>
-	</li>`;
+	<a href="{ url }" title="{ title }">
+  	    <img src="{ thumb }" title="{ title }">
+	    <div class="mask">
+		<div class="img-operate">
+		    <span class="collect"><i class="icon-collect"></i></span>
+		    <span class="download-other fr">源文件</span>
+		    <span class="download-jpg fr">原图</span>
+		</div>
+		<div class="img-title common_ovh">{ title }</div>
+	    </div>
+	</a>
+    </li>`;
 let curPage = 2, filterData = { 一些数据 };
 
 // 后台获取数据接口方法
 function getListAjax(callback) {
-		let data = filterData;
-		data.page = curPage;
+    let data = filterData;
+    data.page = curPage;
 
-        $.ajax({
-        	url: '/api/get_photo_list',
-        	type: 'POST',
-        	data: data,
-        })
-        .done(function(res) {
-        	let str = "";
-        	if(res.code == 200) {
-		        $.each(res.data, function(index, el) {
-		        	str += template
-		        		.replace("{ thumb }", el.thumb)
-		        		.replace("{ id }", el.id)
-		        		.replace("{ url }", el.url)
-		        		.replace(/{ title }/g, el.title)
-		        });
+     $.ajax({
+        url: '/api/get_photo_list',
+        type: 'POST',
+        data: data,
+     })
+     .done(function(res) {
+          let str = "";
+          if(res.code == 200) {
+	      $.each(res.data, function(index, el) {
+		  str += template
+		       .replace("{ thumb }", el.thumb)
+		        .replace("{ id }", el.id)
+		        .replace("{ url }", el.url)
+		        .replace(/{ title }/g, el.title)
+		  });
 
-		        curPage++;
-        	}
-        	callback(res, str)
+		  curPage++;
+             }
+             callback(res, str)
         })
         .fail(function(error) {
-        	console.log(error);
+            console.log(error);
         })
-	};
+};
 
 容器.toWaterfall({
-		ajaxData: function(success) {
-			getListAjax(function(res, str) {
-				if(res.code == 200) {
-			        $bigSmall.append($(str));
-			        success(str, res.next);
-	        	}else {
-	        		success('', 0);
-	        	}
-			})
-		}
+    ajaxData: function(success) {
+	getListAjax(function(res, str) {
+	    if(res.code == 200) {
+		$bigSmall.append($(str));
+		success(str, res.next);
+	    }else {
+	        success('', 0);
+	    }
 	})
+	}
+    })
 
 
 ```
