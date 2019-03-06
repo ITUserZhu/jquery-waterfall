@@ -75,29 +75,29 @@ function getListAjax(callback) {
     let data = filterData;
     data.page = curPage;
 
-     $.ajax({
-        url: '/api/get_photo_list',
+    $.ajax({
+	url: '/api/get_photo_list',
         type: 'POST',
         data: data,
-     })
-     .done(function(res) {
-          let str = "";
-          if(res.code == 200) {
-	      $.each(res.data, function(index, el) {
-		  str += template
-		       .replace("{ thumb }", el.thumb)
-		        .replace("{ id }", el.id)
-		        .replace("{ url }", el.url)
-		        .replace(/{ title }/g, el.title)
-		  });
+    })
+    .done(function(res) {
+	let str = "";
+	if(res.code == 200) {
+	    $.each(res.data, function(index, el) {
+		str += template
+		    .replace("{ thumb }", el.thumb)
+		    .replace("{ id }", el.id)
+		    .replace("{ url }", el.url)
+		    .replace(/{ title }/g, el.title)
+	    });
 
-		  curPage++;
-             }
-             callback(res, str)
-        })
-        .fail(function(error) {
-            console.log(error);
-        })
+	    curPage++;
+	}
+	callback(res, str)
+    })
+    .fail(function(error) {
+	console.log(error);
+    })
 };
 
 容器.toWaterfall({
@@ -110,8 +110,8 @@ function getListAjax(callback) {
 	        success('', 0);
 	    }
 	})
-	}
-    })
+    }
+})
 
 
 ```
