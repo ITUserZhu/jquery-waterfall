@@ -33,7 +33,7 @@ waterfall with jquery, es6
 
 // 接受参数
 /*
-	** item: '.item',  瀑布流元素类名
+    ** item: '.item',  瀑布流元素类名
     ** spaceBetween: 10, 元素间距
     ** resize: true, 是否根据窗口自适应
     ** checkNav: '', 这边是当有tab切换，tab元素父容器
@@ -55,9 +55,9 @@ waterfall with jquery, es6
 
 // 瀑布流元素
 let template = `
-	<li class="item" data-id="{ id }">
+    <li class="item" data-id="{ id }">
 		<a href="{ url }" title="{ title }">
-			<img src="{ thumb }" title="{ title }">
+	    	<img src="{ thumb }" title="{ title }">
 			<div class="mask">
 				<div class="img-operate">
 					<span class="collect"><i class="icon-collect"></i></span>
